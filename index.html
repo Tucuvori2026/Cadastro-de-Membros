@@ -828,8 +828,121 @@
 
 
         /* =====================================================
-           DOCUMENTOS
+           DOCUMENTOS E FOTO PESSOAL
         ====================================================== */
+
+        .foto-pessoal-area {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 25px;
+
+            padding: 20px;
+
+            background: #fcfcfb;
+
+            border: 1px dashed var(--borda);
+
+            border-radius: 14px;
+
+            text-align: center;
+
+        }
+
+
+        .foto-preview-box {
+
+            width: 120px;
+
+            height: 120px;
+
+            border-radius: 50%;
+
+            border: 3px solid var(--dourado);
+
+            background: #f0eee9;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            margin-bottom: 12px;
+
+            position: relative;
+
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+        }
+
+
+        .foto-preview-box img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: none;
+
+        }
+
+
+        .foto-icon-placeholder {
+
+            font-size: 45px;
+
+            color: #a09d96;
+
+        }
+
+
+        .btn-upload-foto {
+
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            background: var(--vermelho);
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: background .2s;
+
+        }
+
+
+        .btn-upload-foto:hover {
+
+            background: var(--vermelho-escuro);
+
+        }
+
+
+        .btn-upload-foto input {
+
+            display: none;
+
+        }
+
 
         .documento-card {
 
@@ -1726,7 +1839,7 @@
     </h2>
 
     <p>
-        Formulário de Entrada
+        Formulário de Entrada — T.U.C.U.V.O.R.I.
     </p>
 
 </header>
@@ -1850,6 +1963,41 @@
                             <p>
                                 Informações básicas para seu cadastro.
                             </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- UPLOAD DE FOTO PESSOAL DA PESSOA -->
+
+                    <div class="foto-pessoal-area">
+
+                        <div class="foto-preview-box">
+
+                            <span class="foto-icon-placeholder" id="fotoPlaceholder">👤</span>
+
+                            <img id="imgPreviewFotoPessoal" alt="Sua Foto">
+
+                        </div>
+
+                        <label class="btn-upload-foto">
+
+                            📷 Tirar / Escolher Foto
+
+                            <input
+                                type="file"
+                                id="fotoPessoal"
+                                accept="image/*"
+                            >
+
+                        </label>
+
+                        <div class="arquivo-nome" id="nomeFotoPessoal"></div>
+
+                        <div class="ajuda" style="margin-top: 6px;">
+
+                            Envie uma foto recente de rosto para identificação.
 
                         </div>
 
@@ -5650,8 +5798,55 @@ document
 
 
 /* =========================================================
-   UPLOADS
+   UPLOADS E PREVIEW FOTO
 ========================================================= */
+
+const inputFotoPessoal = document.getElementById("fotoPessoal");
+
+if (inputFotoPessoal) {
+
+    inputFotoPessoal.addEventListener("change", function() {
+
+        const arquivo = this.files[0];
+
+        const nome = document.getElementById("nomeFotoPessoal");
+
+        const previewImg = document.getElementById("imgPreviewFotoPessoal");
+
+        const placeholder = document.getElementById("fotoPlaceholder");
+
+        if (arquivo) {
+
+            nome.textContent = "✓ " + arquivo.name;
+
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+
+                previewImg.src = e.target.result;
+
+                previewImg.style.display = "block";
+
+                placeholder.style.display = "none";
+
+            };
+
+            reader.readAsDataURL(arquivo);
+
+        } else {
+
+            nome.textContent = "";
+
+            previewImg.style.display = "none";
+
+            placeholder.style.display = "block";
+
+        }
+
+    });
+
+}
+
 
 const uploads = [
 
@@ -5929,6 +6124,9 @@ function coletarDados() {
 
             cpf:
                 valor("cpf"),
+
+            fotoPessoal:
+                "",
 
             endereco: {
 
@@ -6420,8 +6618,20 @@ async function finalizarCadastro() {
 
 
         /* =========================================
-           DOCUMENTOS
+           DOCUMENTOS E FOTO PESSOAL
         ========================================= */
+
+        dados.documentos.fotoPessoal =
+            await enviarImagem(
+                document
+                    .getElementById("fotoPessoal")
+                    .files[0],
+
+                cadastroId,
+
+                "foto-pessoal"
+            );
+
 
         dados.documentos.rgFrente =
             await enviarImagem(
@@ -6566,9 +6776,6 @@ async function finalizarCadastro() {
 
 atualizarEtapa();
 
-
-
-        document.addEventListener("DOMContentLoaded", inicializarCamposCondicionais);
 </script>
 
 
