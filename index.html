@@ -16,7 +16,7 @@
     >
 
     <title>
-        T.U.C.U.V.O.R.I
+        Formulário de Entrada | T.U.C.U.V.O.R.I.
     </title>
 
 
@@ -1714,7 +1714,7 @@
 <header class="topo">
 
     <div class="simbolo">
-        TU
+       ✮
     </div>
 
     <h1>
@@ -1726,7 +1726,7 @@
     </h2>
 
     <p>
-        Formulário de Entrada
+        Formulário de Entrada — T.U.C.U.V.O.R.I.
     </p>
 
 </header>
@@ -1864,7 +1864,7 @@
                         <div class="campo full">
 
                             <label>
-                                Nome completo
+                                Nome Completo
                                 <span class="obrigatorio">*</span>
                             </label>
 
@@ -1872,7 +1872,7 @@
                                 type="text"
                                 id="nomeCompleto"
                                 name="nomeCompleto"
-                                placeholder="Digite seu nome completo"
+                                placeholder="***"
                                 required
                             >
 
@@ -1897,14 +1897,12 @@
 
                         </div>
 
-
                         <!-- IDADE -->
 
                         <div class="campo">
 
                             <label>
                                 Idade
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <div class="idade-box">
@@ -1912,7 +1910,7 @@
                                 <input
                                     type="text"
                                     id="idade"
-                                    placeholder="Automática"
+                                    placeholder="Calculado Automaticamente"
                                     readonly
                                 >
 
@@ -1920,11 +1918,29 @@
                                     type="text"
                                     id="faixaIdade"
                                     class="idade-label"
-                                    placeholder="—"
+                                    placeholder="***"
                                     readonly
                                 >
 
                             </div>
+
+                        </div>
+
+                        <!-- TEMPO NA TUCUVORI -->
+
+                        <div class="campo">
+
+                           <label>
+                                Data que entrou para a Tucuvori
+                                <span class="obrigatorio">*</span>
+                            </label>
+
+                            <input
+                                type="date"
+                                id="dataEntradaTucuvori"
+                                name="dataEntradaTucuvori"
+                                required
+                            >
 
                         </div>
 
@@ -2016,7 +2032,7 @@
                             <label>
                                 Orientação Sexual
                                 <span class="obrigatorio">*</span>
-                                </label>
+                            </label>
 
                             <select
                                 id="orientacaoSexual"
@@ -2083,7 +2099,7 @@
                         <div class="campo">
 
                             <label>
-                                Telefone para Contato
+                                Telefone para contato
                             </label>
 
                             <input
@@ -2113,12 +2129,12 @@
                             <label>
                                 Nome
                                 <span class="obrigatorio">*</span>
-                                </label>
+                            </label>
 
                             <input
                                 type="text"
                                 id="emergenciaNome"
-                                placeholder="Nome do contato"
+                                placeholder="***"
                             >
 
                         </div>
@@ -2352,7 +2368,7 @@
                         <div class="campo">
 
                             <label>
-                                Número & Complemento
+                                Número e Complemento
                                 <span class="obrigatorio">*</span>
                             </label>
 
@@ -2469,7 +2485,7 @@
                             <input
                                 type="email"
                                 id="email"
-                                placeholder="Insira seu E-mail"
+                                placeholder="seuemail@email.com"
                             >
 
                         </div>
@@ -2534,6 +2550,7 @@
 
                             <label>
                                 Está gestante?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2582,6 +2599,7 @@
 
                             <label>
                                 Você fuma?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2629,6 +2647,7 @@
 
                             <label>
                                 Você bebe?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2670,12 +2689,62 @@
                         </div>
 
 
+                        <!-- VÍCIOS -->
+
+                        <div class="campo full">
+
+                            <label>
+                                Tem vícios?
+                                <span class="obrigatorio">*</span>
+                            </label>
+
+                            <select
+                                id="temVicios"
+                                data-condicional="viciosDetalhes"
+                            >
+
+                                <option value="">
+                                    Selecione
+                                </option>
+
+                                <option value="Não">
+                                    Não
+                                </option>
+
+                                <option value="Sim">
+                                    Sim
+                                </option>
+
+                            </select>
+
+
+                            <div
+                                class="condicional"
+                                id="viciosDetalhes"
+                            >
+
+                                <label for="viciosInfo">
+                                    Se sim, quais?
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="viciosInfo"
+                                    placeholder="Informe quais"
+                                >
+
+                            </div>
+
+                        </div>
+
+
                         <!-- HIPERTENSÃO -->
 
                         <div class="campo">
 
                             <label>
                                 Possui hipertensão?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2723,6 +2792,7 @@
 
                             <label>
                                 Possui diabetes?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2770,6 +2840,7 @@
 
                             <label>
                                 Já teve AVC?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2817,6 +2888,7 @@
 
                             <label>
                                 Já teve infarto?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2864,6 +2936,7 @@
 
                             <label>
                                 Possui alguma doença cardíaca?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2911,6 +2984,7 @@
 
                             <label>
                                 Possui ou já possuiu problema nos rins?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2958,6 +3032,7 @@
 
                             <label>
                                 Possui problemas respiratórios ou pulmonares?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3005,6 +3080,7 @@
 
                             <label>
                                 Já esteve ou está com tuberculose?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3045,60 +3121,13 @@
 
                         </div>
 
-
-                        <!-- HANSENÍASE -->
-
-                        <div class="campo">
-
-                            <label>
-                                Está com hanseníase?
-                            </label>
-
-                            <select
-                                id="hanseniase"
-                                data-condicional="hanseniaseDetalhes"
-                            >
-
-                                <option value="">
-                                    Selecione
-                                </option>
-
-                                <option value="Não">
-                                    Não
-                                </option>
-
-                                <option value="Sim">
-                                    Sim
-                                </option>
-
-                            </select>
-
-
-                            <div
-                                class="condicional"
-                                id="hanseniaseDetalhes"
-                            >
-
-                                <label>
-                                    Informe detalhes
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="hanseniaseInfo"
-                                >
-
-                            </div>
-
-                        </div>
-
-
                         <!-- CÂNCER -->
 
                         <div class="campo">
 
                             <label>
                                 Tem ou teve câncer?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3146,6 +3175,7 @@
 
                             <label>
                                 Teve alguma internação nos últimos 12 meses?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3193,6 +3223,7 @@
 
                             <label>
                                 Faz ou já fez acompanhamento com psiquiatra?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3240,6 +3271,7 @@
 
                             <label>
                                 Tem ansiedade?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3260,23 +3292,6 @@
                                 </option>
 
                             </select>
-
-
-                            <div
-                                class="condicional"
-                                id="ansiedadeDetalhes"
-                            >
-
-                                <label>
-                                    Informe detalhes
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="ansiedadeInfo"
-                                >
-
-                            </div>
 
                         </div>
 
@@ -3308,23 +3323,6 @@
 
                             </select>
 
-
-                            <div
-                                class="condicional"
-                                id="depressaoDetalhes"
-                            >
-
-                                <label>
-                                    Informe detalhes
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="depressaoInfo"
-                                >
-
-                            </div>
-
                         </div>
 
 
@@ -3333,7 +3331,8 @@
                         <div class="campo">
 
                             <label>
-                                Tipo sanguíneo
+                                Tipo Sanguíneo
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select id="tipoSanguineo">
@@ -3366,6 +3365,7 @@
 
                             <label>
                                 Possui alergia a alguma erva?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3413,6 +3413,7 @@
 
                             <label>
                                 Possui alguma alergia ou restrição alimentar?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3460,6 +3461,7 @@
 
                             <label>
                                 Possui alguma doença ou condição de saúde não mencionada anteriormente?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3519,6 +3521,7 @@
                         <div class="campo">
                             <label>
                                 Usa Medicamentos Contínuos?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3555,7 +3558,8 @@
 
                         <div class="campo">
                             <label>
-                                Possui alguma Doença Crônica?
+                                PossuI alguma Doença Crônica?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3593,6 +3597,7 @@
                         <div class="campo full">
                             <label>
                                 Fez Cirurgias / Tratamentos?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3629,7 +3634,8 @@
 
                         <div class="campo full">
                             <label>
-                                Faz Acompanhamento Psicológico/Psiquiátrico?
+                                Faz acompanhamento Psicológico/Psiquiátrico?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3724,6 +3730,7 @@
 
                             <label>
                                 Você é batizado(a) na Umbanda?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3771,6 +3778,7 @@
 
                             <label>
                                 É batizado(a) ou iniciado(a) em outra religião?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3818,6 +3826,7 @@
 
                             <label>
                                 Já frequentou outros terreiros?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3864,6 +3873,7 @@
 
                             <label>
                                 Possui pais de cabeça confirmados?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3911,6 +3921,7 @@
 
                             <label>
                                 Qual é o seu tipo de mediunidade?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <textarea
@@ -3946,6 +3957,7 @@
 
                             <label>
                                 Você sabe o nome do seu Caboclo?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3993,6 +4005,7 @@
 
                             <label>
                                 Você sabe o nome do seu Preto-Velho?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4040,6 +4053,7 @@
 
                             <label>
                                 Você sabe o nome do seu Erê?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4087,6 +4101,7 @@
 
                             <label>
                                 Você sabe o nome do seu Marinheiro?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4134,6 +4149,7 @@
 
                             <label>
                                 Você sabe o nome do seu Baiano ou Baiana?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4181,6 +4197,7 @@
 
                             <label>
                                 Você sabe o nome do seu Boiadeiro ou Boiadeira?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4228,6 +4245,7 @@
 
                             <label>
                                 Você sabe o nome da sua Cigana ou Cigano?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4275,6 +4293,7 @@
 
                             <label>
                                 Você sabe o nome do seu Malandro ou Malandra?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4322,6 +4341,7 @@
 
                             <label>
                                 Você sabe o nome do seu Exu?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4369,7 +4389,9 @@
 
                             <label>
                                 Você sabe o nome da sua Pombagira?
+                                <span class="obrigatorio">*</span>
                             </label>
+                            
 
                             <select
                                 id="pombagira"
@@ -4416,6 +4438,7 @@
 
                             <label>
                                 Você sabe o nome do seu Exu Mirim?
+                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -5128,9 +5151,15 @@ function validarEtapaAtual() {
 
     for (const campo of campos) {
 
+        const dentroCondicional = campo.closest(".condicional");
+        const condicionalVisivel = dentroCondicional
+            ? (dentroCondicional.classList.contains("visivel") ||
+               dentroCondicional.style.display === "block")
+            : true;
 
         if (
             campo.required &&
+            condicionalVisivel &&
             !campo.checkValidity()
         ) {
 
@@ -5192,6 +5221,80 @@ function voltarEtapa() {
 
 }
 
+
+
+/* =========================================================
+   TEMPO NA TUCUVORI
+========================================================= */
+
+function calcularTempoTucuvori() {
+
+    const campo = document.getElementById("dataEntradaTucuvori");
+    const resultado = document.getElementById("tempoTucuvori");
+
+    if (!campo || !resultado || !campo.value) {
+        if (resultado) resultado.value = "";
+        return;
+    }
+
+    const entrada = new Date(campo.value + "T00:00:00");
+    const hoje = new Date();
+
+    if (entrada > hoje) {
+        resultado.value = "Data inválida";
+        return;
+    }
+
+    let anos = hoje.getFullYear() - entrada.getFullYear();
+    let meses = hoje.getMonth() - entrada.getMonth();
+    let dias = hoje.getDate() - entrada.getDate();
+
+    if (dias < 0) {
+        meses--;
+        const ultimoDiaMesAnterior = new Date(
+            hoje.getFullYear(),
+            hoje.getMonth(),
+            0
+        ).getDate();
+        dias += ultimoDiaMesAnterior;
+    }
+
+    if (meses < 0) {
+        anos--;
+        meses += 12;
+    }
+
+    const partes = [];
+
+    if (anos > 0) {
+        partes.push(`${anos} ${anos === 1 ? "ano" : "anos"}`);
+    }
+
+    if (meses > 0) {
+        partes.push(`${meses} ${meses === 1 ? "mês" : "meses"}`);
+    }
+
+    if (dias > 0 || partes.length === 0) {
+        partes.push(`${dias} ${dias === 1 ? "dia" : "dias"}`);
+    }
+
+    resultado.value = partes.join(", ");
+}
+
+
+const dataEntradaTucuvori =
+    document.getElementById("dataEntradaTucuvori");
+
+if (dataEntradaTucuvori) {
+    dataEntradaTucuvori.max = new Date().toISOString().split("T")[0];
+
+    dataEntradaTucuvori.addEventListener(
+        "change",
+        calcularTempoTucuvori
+    );
+
+    calcularTempoTucuvori();
+}
 
 
 /* =========================================================
@@ -5642,34 +5745,121 @@ function valor(id) {
    COLETAR DADOS
 ========================================================= */
 
+/* =========================================================
+   CAMPOS OBRIGATÓRIOS
+
+   Todas as perguntas precisam ser respondidas.
+   Exceções:
+   - Fotos/documentos: opcionais
+   - Campos calculados automaticamente/readonly: não precisam de resposta
+   - Campos condicionais: só ficam obrigatórios quando a resposta for "Sim"
+========================================================= */
+function configurarCamposObrigatorios() {
+
+    document
+        .querySelectorAll("input, select, textarea")
+        .forEach(campo => {
+
+            const tipo = (campo.type || "").toLowerCase();
+
+            if (tipo === "file") {
+                campo.required = false;
+                return;
+            }
+
+            if (campo.readOnly) {
+                campo.required = false;
+                return;
+            }
+
+            if (campo.id === "aceite") {
+                campo.required = true;
+                return;
+            }
+
+            campo.required = true;
+        });
+
+    document
+        .querySelectorAll("select[data-condicional]")
+        .forEach(select => {
+            atualizarObrigatoriedadeCondicional(select);
+        });
+}
+
+function atualizarObrigatoriedadeCondicional(select) {
+
+    if (!select) return;
+
+    const alvo = document.getElementById(
+        select.dataset.condicional
+    );
+
+    if (!alvo) return;
+
+    const controles = alvo.querySelectorAll(
+        "input, select, textarea"
+    );
+
+    const deveResponder = select.value === "Sim";
+
+    controles.forEach(controle => {
+        const tipo = (controle.type || "").toLowerCase();
+
+        if (tipo !== "file" && !controle.readOnly) {
+            controle.required = deveResponder;
+        }
+    });
+}
+
 function toggleCampoCondicional(selectId, campoId) {
+
     const select = document.getElementById(selectId);
     const campo = document.getElementById(campoId);
 
     if (!select || !campo) return;
 
     if (select.value === "Sim") {
+        campo.classList.add("visivel");
         campo.style.display = "block";
     } else {
+        campo.classList.remove("visivel");
         campo.style.display = "none";
 
-        const input = campo.querySelector("input, textarea");
-        if (input) input.value = "";
+        const controles = campo.querySelectorAll(
+            "input, select, textarea"
+        );
+
+        controles.forEach(controle => {
+            if ((controle.type || "").toLowerCase() !== "file") {
+                controle.value = "";
+            }
+            controle.required = false;
+        });
     }
+
+    atualizarObrigatoriedadeCondicional(select);
 }
 
-// Ativa automaticamente os campos condicionais
+// Ativa automaticamente os campos condicionais e a obrigatoriedade.
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("select[data-condicional]").forEach(select => {
-        const alvo = select.dataset.condicional;
 
-        select.addEventListener("change", () => {
+    configurarCamposObrigatorios();
+
+    document
+        .querySelectorAll("select[data-condicional]")
+        .forEach(select => {
+
+            const alvo = select.dataset.condicional;
+
+            select.addEventListener("change", () => {
+                toggleCampoCondicional(select.id, alvo);
+            });
+
             toggleCampoCondicional(select.id, alvo);
         });
-
-        toggleCampoCondicional(select.id, alvo);
-    });
 });
+
 
 function coletarDados() {
 
@@ -5707,7 +5897,13 @@ function coletarDados() {
                 valor("telefoneContato"),
 
             email:
-                valor("email")
+                valor("email"),
+
+            dataEntradaTucuvori:
+                valor("dataEntradaTucuvori"),
+
+            tempoTucuvori:
+                valor("tempoTucuvori")
 
         },
 
@@ -5778,6 +5974,12 @@ function coletarDados() {
 
             bebeTempo:
                 valor("bebeTempo"),
+
+            temVicios:
+                valor("temVicios"),
+
+            viciosInfo:
+                valor("viciosInfo"),
 
             hipertensao:
                 valor("hipertensao"),
@@ -6105,6 +6307,9 @@ async function finalizarCadastro() {
     }
 
 
+    configurarCamposObrigatorios();
+
+
     if (!validarEtapaAtual()) {
 
         return;
@@ -6130,6 +6335,39 @@ async function finalizarCadastro() {
 
 
     try {
+
+
+        /* =========================================
+           GERAR NÚMERO DE CADASTRO (RE)
+        ========================================= */
+
+        let numeroCadastro = "";
+
+        try {
+            const contadorRef = database.ref(
+                "config/cadastrosEntrada/ultimoNumero"
+            );
+
+            const resultadoContador = await contadorRef.transaction(
+                atual => (Number(atual) || 0) + 1
+            );
+
+            const numero = Number(
+                resultadoContador.snapshot.val()
+            );
+
+            numeroCadastro =
+                "RE-" + String(numero).padStart(4, "0");
+        } catch (erroContador) {
+            console.warn(
+                "Não foi possível atualizar o contador. Usando número alternativo.",
+                erroContador
+            );
+
+            numeroCadastro =
+                "RE-" +
+                String(Date.now()).slice(-8);
+        }
 
 
         /* =========================================
@@ -6160,6 +6398,9 @@ async function finalizarCadastro() {
 
         dados.id =
             cadastroId;
+
+        dados.numeroCadastro =
+            numeroCadastro;
 
 
         dados.status =
@@ -6273,7 +6514,7 @@ async function finalizarCadastro() {
             .getElementById("codigoCadastro")
             .textContent =
             "Cadastro: " +
-            cadastroId;
+            numeroCadastro;
 
 
         window.scrollTo({
