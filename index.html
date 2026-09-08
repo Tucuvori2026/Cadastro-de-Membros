@@ -1726,7 +1726,7 @@
     </h2>
 
     <p>
-        Formulário de Entrada — T.U.C.U.V.O.R.I.
+        Formulário de Entrada
     </p>
 
 </header>
@@ -5798,7 +5798,7 @@ function valor(id) {
 
    Todas as perguntas precisam ser respondidas.
    Exceções:
-   - Fotos/documentos: opcionais
+   - Fotos/documentos: opcionais e salvas em Base64 no cadastro
    - Campos calculados automaticamente/readonly: não precisam de resposta
    - Campos condicionais: só ficam obrigatórios quando a resposta for "Sim"
 ========================================================= */
@@ -6283,40 +6283,117 @@ function coletarDados() {
 
 
 /* =========================================================
-   UPLOAD PARA FIREBASE STORAGE
+   IMAGENS EM BASE64
+
+   As fotos são opcionais. Quando uma foto é selecionada,
+   ela é convertida para Base64 no navegador e salva junto
+   com o cadastro no Firebase Realtime Database.
+
+   Para evitar que fotos de celular muito grandes impeçam o
+   cadastro, a imagem é redimensionada e comprimida antes da
+   conversão para Base64.
 ========================================================= */
 
-async function enviarImagem(
-    arquivo,
-    cadastroId,
-    nomeArquivo
-) {
+function imagemParaBase64(arquivo, larguraMaxima = 1600, qualidade = 0.82) {
 
+    return new Promise((resolve, reject) => {
 
-    if (!arquivo) {
+        if (!arquivo) {
+            resolve(null);
+            return;
+        }
 
-        return null;
+        if (!arquivo.type || !arquivo.type.startsWith("image/")) {
+            reject(new Error("O arquivo selecionado não é uma imagem válida."));
+            return;
+        }
 
-    }
+        const leitor = new FileReader();
 
+        leitor.onload = () => {
 
-    const referencia =
-        storage.ref(
-            `cadastros/${cadastroId}/documentos/${nomeArquivo}`
-        );
+            const imagem = new Image();
 
+            imagem.onload = () => {
 
-    const snapshot =
-        await referencia.put(
-            arquivo
-        );
+                let largura = imagem.naturalWidth;
+                let altura = imagem.naturalHeight;
 
+                if (!largura || !altura) {
+                    reject(new Error("Não foi possível ler as dimensões da imagem."));
+                    return;
+                }
 
-    return await
-        snapshot.ref.getDownloadURL();
+                if (largura > larguraMaxima) {
+                    const proporcao = larguraMaxima / largura;
+                    largura = Math.round(largura * proporcao);
+                    altura = Math.round(altura * proporcao);
+                }
 
+                const canvas = document.createElement("canvas");
+                canvas.width = largura;
+                canvas.height = altura;
+
+                const contexto = canvas.getContext("2d", {
+                    alpha: false
+                });
+
+                if (!contexto) {
+                    reject(new Error("Não foi possível preparar a imagem."));
+                    return;
+                }
+
+                contexto.imageSmoothingEnabled = true;
+                contexto.imageSmoothingQuality = "high";
+                contexto.drawImage(imagem, 0, 0, largura, altura);
+
+                const base64 = canvas.toDataURL("image/jpeg", qualidade);
+
+                resolve({
+                    base64: base64,
+                    nome: arquivo.name,
+                    tipoOriginal: arquivo.type,
+                    tipoSalvo: "image/jpeg",
+                    tamanhoOriginal: arquivo.size,
+                    largura: largura,
+                    altura: altura
+                });
+            };
+
+            imagem.onerror = () => {
+                reject(new Error("Não foi possível carregar a imagem selecionada."));
+            };
+
+            imagem.src = leitor.result;
+        };
+
+        leitor.onerror = () => {
+            reject(new Error("Não foi possível ler a imagem selecionada."));
+        };
+
+        leitor.readAsDataURL(arquivo);
+    });
 }
 
+
+async function prepararImagensBase64() {
+
+    const rgFrente = document.getElementById("rgFrente")?.files?.[0] || null;
+    const rgVerso = document.getElementById("rgVerso")?.files?.[0] || null;
+    const cpfFoto = document.getElementById("cpfFoto")?.files?.[0] || null;
+
+    const [frente, verso, cpf] = await Promise.all([
+        imagemParaBase64(rgFrente),
+        imagemParaBase64(rgVerso),
+        imagemParaBase64(cpfFoto)
+    ]);
+
+    return {
+        rgFrente: frente,
+        rgVerso: verso,
+        cpfFoto: cpf
+    };
+}
 
 
 /* =========================================================
@@ -6468,43 +6545,14 @@ async function finalizarCadastro() {
 
 
         /* =========================================
-           DOCUMENTOS
+           DOCUMENTOS — BASE64
         ========================================= */
 
-        dados.documentos.rgFrente =
-            await enviarImagem(
-                document
-                    .getElementById("rgFrente")
-                    .files[0],
+        const imagens = await prepararImagensBase64();
 
-                cadastroId,
-
-                "rg-frente"
-            );
-
-
-        dados.documentos.rgVerso =
-            await enviarImagem(
-                document
-                    .getElementById("rgVerso")
-                    .files[0],
-
-                cadastroId,
-
-                "rg-verso"
-            );
-
-
-        dados.documentos.cpfFoto =
-            await enviarImagem(
-                document
-                    .getElementById("cpfFoto")
-                    .files[0],
-
-                cadastroId,
-
-                "cpf"
-            );
+        dados.documentos.rgFrente = imagens.rgFrente;
+        dados.documentos.rgVerso = imagens.rgVerso;
+        dados.documentos.cpfFoto = imagens.cpfFoto;
 
 
         /* =========================================
