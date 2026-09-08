@@ -828,121 +828,8 @@
 
 
         /* =====================================================
-           DOCUMENTOS E FOTO PESSOAL
+           DOCUMENTOS
         ====================================================== */
-
-        .foto-pessoal-area {
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
-
-            margin-bottom: 25px;
-
-            padding: 20px;
-
-            background: #fcfcfb;
-
-            border: 1px dashed var(--borda);
-
-            border-radius: 14px;
-
-            text-align: center;
-
-        }
-
-
-        .foto-preview-box {
-
-            width: 120px;
-
-            height: 120px;
-
-            border-radius: 50%;
-
-            border: 3px solid var(--dourado);
-
-            background: #f0eee9;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            overflow: hidden;
-
-            margin-bottom: 12px;
-
-            position: relative;
-
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-
-        }
-
-
-        .foto-preview-box img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            display: none;
-
-        }
-
-
-        .foto-icon-placeholder {
-
-            font-size: 45px;
-
-            color: #a09d96;
-
-        }
-
-
-        .btn-upload-foto {
-
-            display: inline-block;
-
-            padding: 10px 18px;
-
-            background: var(--vermelho);
-
-            color: white;
-
-            border-radius: 8px;
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: background .2s;
-
-        }
-
-
-        .btn-upload-foto:hover {
-
-            background: var(--vermelho-escuro);
-
-        }
-
-
-        .btn-upload-foto input {
-
-            display: none;
-
-        }
-
 
         .documento-card {
 
@@ -1827,7 +1714,7 @@
 <header class="topo">
 
     <div class="simbolo">
-       ✮
+        TU
     </div>
 
     <h1>
@@ -1968,12 +1855,16 @@
 
                     </div>
 
+
+                    <div class="grid">
+
+
                         <!-- NOME -->
 
                         <div class="campo full">
 
                             <label>
-                                Nome Completo
+                                Nome completo
                                 <span class="obrigatorio">*</span>
                             </label>
 
@@ -1981,7 +1872,7 @@
                                 type="text"
                                 id="nomeCompleto"
                                 name="nomeCompleto"
-                                placeholder="***"
+                                placeholder="Digite seu nome completo"
                                 required
                             >
 
@@ -2006,41 +1897,13 @@
 
                         </div>
 
-                        <!-- IDADE -->
+
+                        <!-- DATA DE ENTRADA NA TUCUVORI -->
 
                         <div class="campo">
 
                             <label>
-                                Idade
-                            </label>
-
-                            <div class="idade-box">
-
-                                <input
-                                    type="text"
-                                    id="idade"
-                                    placeholder="Calculado Automaticamente"
-                                    readonly
-                                >
-
-                                <input
-                                    type="text"
-                                    id="faixaIdade"
-                                    class="idade-label"
-                                    placeholder="***"
-                                    readonly
-                                >
-
-                            </div>
-
-                        </div>
-
-                        <!-- TEMPO NA TUCUVORI -->
-
-                        <div class="campo">
-
-                           <label>
-                                Data que entrou para a Tucuvori
+                                Data que entrou para a TUCUVORI
                                 <span class="obrigatorio">*</span>
                             </label>
 
@@ -2054,13 +1917,60 @@
                         </div>
 
 
+                        <!-- TEMPO NA TUCUVORI -->
+
+                        <div class="campo">
+
+                            <label>
+                                Tempo na TUCUVORI
+                            </label>
+
+                            <input
+                                type="text"
+                                id="tempoTucuvori"
+                                placeholder="Calculado automaticamente"
+                                readonly
+                            >
+
+                        </div>
+
+
+                        <!-- IDADE -->
+
+                        <div class="campo">
+
+                            <label>
+                                Idade
+                            </label>
+
+                            <div class="idade-box">
+
+                                <input
+                                    type="text"
+                                    id="idade"
+                                    placeholder="Automática"
+                                    readonly
+                                >
+
+                                <input
+                                    type="text"
+                                    id="faixaIdade"
+                                    class="idade-label"
+                                    placeholder="—"
+                                    readonly
+                                >
+
+                            </div>
+
+                        </div>
+
+
                         <!-- SEXO -->
 
                         <div class="campo">
 
                             <label>
-                                Sexo Biológico
-                                <span class="obrigatorio">*</span>
+                                Sexo biológico
                             </label>
 
                             <select
@@ -2098,7 +2008,6 @@
 
                             <label>
                                 Você se identifica como
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2139,8 +2048,7 @@
                         <div class="campo">
 
                             <label>
-                                Orientação Sexual
-                                <span class="obrigatorio">*</span>
+                                Orientação sexual
                             </label>
 
                             <select
@@ -2196,7 +2104,7 @@
                             <input
                                 type="tel"
                                 id="telefoneWhatsapp"
-                                placeholder="(00) 00000-0000"
+                                placeholder="(11) 99999-9999"
                                 required
                             >
 
@@ -2214,7 +2122,7 @@
                             <input
                                 type="tel"
                                 id="telefoneContato"
-                                placeholder="(00) 00000-0000"
+                                placeholder="(11) 99999-9999"
                             >
 
                         </div>
@@ -2237,13 +2145,12 @@
 
                             <label>
                                 Nome
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
                                 type="text"
                                 id="emergenciaNome"
-                                placeholder="***"
+                                placeholder="Nome do contato"
                             >
 
                         </div>
@@ -2253,7 +2160,6 @@
 
                             <label>
                                 Parentesco
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
@@ -2269,13 +2175,12 @@
 
                             <label>
                                 Telefone
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
                                 type="tel"
                                 id="emergenciaTelefone"
-                                placeholder="(00) 00000-0000"
+                                placeholder="(11) 99999-9999"
                             >
 
                         </div>
@@ -2307,7 +2212,7 @@
                             <input
                                 type="text"
                                 id="rg"
-                                placeholder="00.000.000-0"
+                                placeholder="Digite seu RG"
                                 required
                             >
 
@@ -2362,7 +2267,7 @@
                                 </div>
 
                                 <div class="upload-text">
-                                    Foto
+                                    Foto opcional
                                 </div>
 
                                 <div
@@ -2396,7 +2301,7 @@
                                 </div>
 
                                 <div class="upload-text">
-                                    Foto
+                                    Foto opcional
                                 </div>
 
                                 <div
@@ -2430,7 +2335,7 @@
                                 </div>
 
                                 <div class="upload-text">
-                                    Foto
+                                    Foto opcional
                                 </div>
 
                                 <div
@@ -2462,7 +2367,6 @@
 
                             <label>
                                 Rua
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
@@ -2477,8 +2381,7 @@
                         <div class="campo">
 
                             <label>
-                                Número e Complemento
-                                <span class="obrigatorio">*</span>
+                                Número
                             </label>
 
                             <input
@@ -2494,7 +2397,6 @@
 
                             <label>
                                 Bairro
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
@@ -2510,7 +2412,6 @@
 
                             <label>
                                 Cidade
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
@@ -2526,13 +2427,12 @@
 
                             <label>
                                 CEP
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
                                 type="text"
                                 id="cep"
-                                placeholder="00.000-000"
+                                placeholder="00000-000"
                             >
 
                         </div>
@@ -2542,7 +2442,6 @@
 
                             <label>
                                 UF
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select id="uf">
@@ -2588,7 +2487,6 @@
 
                             <label>
                                 E-mail
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <input
@@ -2643,7 +2541,7 @@
 
                         <strong>Importante:</strong>
 
-                        Informe somente aquilo que considerar necessário.
+                        informe somente aquilo que considerar necessário.
                         Essas informações têm como finalidade auxiliar no
                         acolhimento e acompanhamento dentro da casa.
 
@@ -2659,7 +2557,6 @@
 
                             <label>
                                 Está gestante?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2708,7 +2605,6 @@
 
                             <label>
                                 Você fuma?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2756,7 +2652,6 @@
 
                             <label>
                                 Você bebe?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2804,7 +2699,6 @@
 
                             <label>
                                 Tem vícios?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2853,7 +2747,6 @@
 
                             <label>
                                 Possui hipertensão?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2901,7 +2794,6 @@
 
                             <label>
                                 Possui diabetes?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2949,7 +2841,6 @@
 
                             <label>
                                 Já teve AVC?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -2997,7 +2888,6 @@
 
                             <label>
                                 Já teve infarto?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3045,7 +2935,6 @@
 
                             <label>
                                 Possui alguma doença cardíaca?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3093,7 +2982,6 @@
 
                             <label>
                                 Possui ou já possuiu problema nos rins?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3141,7 +3029,6 @@
 
                             <label>
                                 Possui problemas respiratórios ou pulmonares?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3189,7 +3076,6 @@
 
                             <label>
                                 Já esteve ou está com tuberculose?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3230,13 +3116,60 @@
 
                         </div>
 
+
+                        <!-- HANSENÍASE -->
+
+                        <div class="campo">
+
+                            <label>
+                                Está com hanseníase?
+                            </label>
+
+                            <select
+                                id="hanseniase"
+                                data-condicional="hanseniaseDetalhes"
+                            >
+
+                                <option value="">
+                                    Selecione
+                                </option>
+
+                                <option value="Não">
+                                    Não
+                                </option>
+
+                                <option value="Sim">
+                                    Sim
+                                </option>
+
+                            </select>
+
+
+                            <div
+                                class="condicional"
+                                id="hanseniaseDetalhes"
+                            >
+
+                                <label>
+                                    Informe detalhes
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="hanseniaseInfo"
+                                >
+
+                            </div>
+
+                        </div>
+
+
                         <!-- CÂNCER -->
 
                         <div class="campo">
 
                             <label>
                                 Tem ou teve câncer?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3284,7 +3217,6 @@
 
                             <label>
                                 Teve alguma internação nos últimos 12 meses?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3332,7 +3264,6 @@
 
                             <label>
                                 Faz ou já fez acompanhamento com psiquiatra?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3380,7 +3311,6 @@
 
                             <label>
                                 Tem ansiedade?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3401,6 +3331,23 @@
                                 </option>
 
                             </select>
+
+
+                            <div
+                                class="condicional"
+                                id="ansiedadeDetalhes"
+                            >
+
+                                <label>
+                                    Informe detalhes
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="ansiedadeInfo"
+                                >
+
+                            </div>
 
                         </div>
 
@@ -3432,6 +3379,23 @@
 
                             </select>
 
+
+                            <div
+                                class="condicional"
+                                id="depressaoDetalhes"
+                            >
+
+                                <label>
+                                    Informe detalhes
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="depressaoInfo"
+                                >
+
+                            </div>
+
                         </div>
 
 
@@ -3440,8 +3404,7 @@
                         <div class="campo">
 
                             <label>
-                                Tipo Sanguíneo
-                                <span class="obrigatorio">*</span>
+                                Tipo sanguíneo
                             </label>
 
                             <select id="tipoSanguineo">
@@ -3474,7 +3437,6 @@
 
                             <label>
                                 Possui alergia a alguma erva?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3522,7 +3484,6 @@
 
                             <label>
                                 Possui alguma alergia ou restrição alimentar?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3570,7 +3531,6 @@
 
                             <label>
                                 Possui alguma doença ou condição de saúde não mencionada anteriormente?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3629,8 +3589,7 @@
 
                         <div class="campo">
                             <label>
-                                Usa Medicamentos Contínuos?
-                                <span class="obrigatorio">*</span>
+                                Usa Medicamentos Contínuos
                             </label>
 
                             <select
@@ -3667,8 +3626,7 @@
 
                         <div class="campo">
                             <label>
-                                PossuI alguma Doença Crônica?
-                                <span class="obrigatorio">*</span>
+                                Possui Doença Crônica
                             </label>
 
                             <select
@@ -3705,8 +3663,7 @@
 
                         <div class="campo full">
                             <label>
-                                Fez Cirurgias / Tratamentos?
-                                <span class="obrigatorio">*</span>
+                                Fez Cirurgias / Tratamentos
                             </label>
 
                             <select
@@ -3743,8 +3700,7 @@
 
                         <div class="campo full">
                             <label>
-                                Faz acompanhamento Psicológico/Psiquiátrico?
-                                <span class="obrigatorio">*</span>
+                                Acompanhamento Psicológico/Psiquiátrico
                             </label>
 
                             <select
@@ -3839,7 +3795,6 @@
 
                             <label>
                                 Você é batizado(a) na Umbanda?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3887,7 +3842,6 @@
 
                             <label>
                                 É batizado(a) ou iniciado(a) em outra religião?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3935,7 +3889,6 @@
 
                             <label>
                                 Já frequentou outros terreiros?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -3982,7 +3935,6 @@
 
                             <label>
                                 Possui pais de cabeça confirmados?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4030,7 +3982,6 @@
 
                             <label>
                                 Qual é o seu tipo de mediunidade?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <textarea
@@ -4066,7 +4017,6 @@
 
                             <label>
                                 Você sabe o nome do seu Caboclo?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4114,7 +4064,6 @@
 
                             <label>
                                 Você sabe o nome do seu Preto-Velho?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4162,7 +4111,6 @@
 
                             <label>
                                 Você sabe o nome do seu Erê?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4210,7 +4158,6 @@
 
                             <label>
                                 Você sabe o nome do seu Marinheiro?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4258,7 +4205,6 @@
 
                             <label>
                                 Você sabe o nome do seu Baiano ou Baiana?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4306,7 +4252,6 @@
 
                             <label>
                                 Você sabe o nome do seu Boiadeiro ou Boiadeira?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4354,7 +4299,6 @@
 
                             <label>
                                 Você sabe o nome da sua Cigana ou Cigano?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4402,7 +4346,6 @@
 
                             <label>
                                 Você sabe o nome do seu Malandro ou Malandra?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4450,7 +4393,6 @@
 
                             <label>
                                 Você sabe o nome do seu Exu?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -4498,9 +4440,7 @@
 
                             <label>
                                 Você sabe o nome da sua Pombagira?
-                                <span class="obrigatorio">*</span>
                             </label>
-                            
 
                             <select
                                 id="pombagira"
@@ -4547,7 +4487,6 @@
 
                             <label>
                                 Você sabe o nome do seu Exu Mirim?
-                                <span class="obrigatorio">*</span>
                             </label>
 
                             <select
@@ -5759,55 +5698,8 @@ document
 
 
 /* =========================================================
-   UPLOADS E PREVIEW FOTO
+   UPLOADS
 ========================================================= */
-
-const inputFotoPessoal = document.getElementById("fotoPessoal");
-
-if (inputFotoPessoal) {
-
-    inputFotoPessoal.addEventListener("change", function() {
-
-        const arquivo = this.files[0];
-
-        const nome = document.getElementById("nomeFotoPessoal");
-
-        const previewImg = document.getElementById("imgPreviewFotoPessoal");
-
-        const placeholder = document.getElementById("fotoPlaceholder");
-
-        if (arquivo) {
-
-            nome.textContent = "✓ " + arquivo.name;
-
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-
-                previewImg.src = e.target.result;
-
-                previewImg.style.display = "block";
-
-                placeholder.style.display = "none";
-
-            };
-
-            reader.readAsDataURL(arquivo);
-
-        } else {
-
-            nome.textContent = "";
-
-            previewImg.style.display = "none";
-
-            placeholder.style.display = "block";
-
-        }
-
-    });
-
-}
-
 
 const uploads = [
 
@@ -6085,9 +5977,6 @@ function coletarDados() {
 
             cpf:
                 valor("cpf"),
-
-            fotoPessoal:
-                "",
 
             endereco: {
 
@@ -6579,20 +6468,8 @@ async function finalizarCadastro() {
 
 
         /* =========================================
-           DOCUMENTOS E FOTO PESSOAL
+           DOCUMENTOS
         ========================================= */
-
-        dados.documentos.fotoPessoal =
-            await enviarImagem(
-                document
-                    .getElementById("fotoPessoal")
-                    .files[0],
-
-                cadastroId,
-
-                "foto-pessoal"
-            );
-
 
         dados.documentos.rgFrente =
             await enviarImagem(
@@ -6737,6 +6614,9 @@ async function finalizarCadastro() {
 
 atualizarEtapa();
 
+
+
+        document.addEventListener("DOMContentLoaded", inicializarCamposCondicionais);
 </script>
 
 
